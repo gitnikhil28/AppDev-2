@@ -1,0 +1,12 @@
+# For activating VirEnv for WSL
+print("source .venv/bin/activate")
+
+
+# For activating VirEnv for Python
+# python -m venv .venv
+# . .venv\Scripts\Activate
+
+celery -A app.celery_app worker --loglevel=info --pool=eventlet
+celery -A app.celery_app beat --loglevel=info 
+
+wsl ~/go/bin/MailHog
